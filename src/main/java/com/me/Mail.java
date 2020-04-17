@@ -34,7 +34,7 @@ public class Mail {
         // 登录用户名:
         String username = "1934109821@qq.com";
         // 登录口令:
-        String password = "SSM404NOTFOUND";
+        String password = "....";
         // 连接到SMTP服务器587端口:
         Properties props = new Properties();
         props.put("mail.smtp.host", smtp); // SMTP主机名
