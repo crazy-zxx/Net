@@ -48,6 +48,7 @@ public class Test {
          * 如果连接成功，服务器端和客户端就成功地建立了一个TCP连接，双方后续就可以随时发送和接收数据。
          */
 
+        System.out.println("hello");
 
     }
 
