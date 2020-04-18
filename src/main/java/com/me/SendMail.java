@@ -12,7 +12,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class Mail {
+public class SendMail {
 
     public static void main(String[] args) throws Exception {
 
@@ -34,7 +34,7 @@ public class Mail {
         // 登录用户名:
         String username = "1934109821@qq.com";
         // 登录口令:
-        String password = "....";
+        String password = ".";
         // 连接到SMTP服务器587端口:
         Properties props = new Properties();
         props.put("mail.smtp.host", smtp); // SMTP主机名
@@ -86,9 +86,10 @@ public class Mail {
         // 添加image附件:
         BodyPart imagepartfile = new MimeBodyPart();
         imagepartfile.setFileName("javamail-file.jpg");
-        InputStream input=new FileInputStream(new File("javamail.jpg"));
+        InputStream input=new FileInputStream(new File("src/main/resources/javamail.jpg"));
         imagepartfile.setDataHandler(new DataHandler(new ByteArrayDataSource(input, "application/octet-stream")));
         multipart.addBodyPart(imagepartfile);
+
 
         //内嵌图片实际上也是一个附件，即邮件本身也是Multipart，但需要做一点额外的处理
         // 添加text:
@@ -104,11 +105,12 @@ public class Mail {
         imagepart.setHeader("Content-ID", "<img01>");
         multipart.addBodyPart(imagepart);
 
+
         // 设置邮件内容为multipart:
         message.setContent(multipart);
 
-
         // 发送:
         Transport.send(message);
+
     }
 }
